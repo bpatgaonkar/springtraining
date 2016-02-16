@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ActStDesc" table="T_ACT_ST_DESC">
+        <id name="actStDescId" type="big_decimal">
+            <column name="ACT_ST_DESC_ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <many-to-one name="activity" class="com.mycompany.config.plan.Activity" fetch="select">
+            <column name="ACTIVITYID" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="state" type="string">
+            <column name="STATE" length="40" not-null="true" />
+        </property>
+        <property name="curstate" type="string">
+            <column name="CURSTATE" length="40" />
+        </property>
+        <property name="invact" type="string">
+            <column name="INVACT" length="20" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <property name="actStDepId" type="big_decimal">
+            <column name="ACT_ST_DEP_ID" scale="0" />
+        </property>
+        <set name="activityEvents" table="T_ACTIVITYEVENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="STATEDESCRIPTOR" scale="0" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityEvent" />
+        </set>
+    </class>
+</hibernate-mapping>

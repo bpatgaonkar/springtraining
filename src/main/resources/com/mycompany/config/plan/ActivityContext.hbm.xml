@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ActivityContext" table="T_ACTIVITYCONTEXT">
+        <id name="activitycontextid" type="big_decimal">
+            <column name="ACTIVITYCONTEXTID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <many-to-one name="planContext" class="com.mycompany.config.plan.PlanContext" lazy="false" fetch="select">
+            <column name="PLANCONTEXTID" scale="0" />
+        </many-to-one>
+        <many-to-one name="activity" class="com.mycompany.config.plan.Activity" lazy="false" fetch="select">
+            <column name="ACTIVITYID" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="activityDefinition" class="com.mycompany.config.plan.ActivityDefinition" lazy="false" fetch="select">
+            <column name="ACTIVITYDEFINITIONID" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="state" type="string">
+            <column name="STATE" length="40" />
+        </property>
+        <property name="prevstate" type="string">
+            <column name="PREVSTATE" length="40" />
+        </property>
+        <property name="stdescid" type="big_decimal">
+            <column name="STDESCID" scale="0" />
+        </property>
+        <property name="serviceproviderid" type="big_decimal">
+            <column name="SERVICEPROVIDERID" scale="0" />
+        </property>
+        <property name="haserror" type="java.lang.Boolean">
+            <column name="HASERROR" precision="1" scale="0" />
+        </property>
+        <property name="hasduedateitem" type="java.lang.Boolean">
+            <column name="HASDUEDATEITEM" precision="1" scale="0" />
+        </property>
+        <property name="value1" type="string">
+            <column name="VALUE1" length="120" />
+        </property>
+        <property name="value2" type="string">
+            <column name="VALUE2" length="120" />
+        </property>
+        <property name="value3" type="string">
+            <column name="VALUE3" length="120" />
+        </property>
+        <property name="value4" type="string">
+            <column name="VALUE4" length="120" />
+        </property>
+        <property name="value5" type="string">
+            <column name="VALUE5" length="120" />
+        </property>
+        <property name="value6" type="string">
+            <column name="VALUE6" length="120" />
+        </property>
+        <property name="value7" type="string">
+            <column name="VALUE7" length="120" />
+        </property>
+        <property name="value8" type="string">
+            <column name="VALUE8" length="120" />
+        </property>
+        <property name="value9" type="string">
+            <column name="VALUE9" length="120" />
+        </property>
+        <property name="value10" type="string">
+            <column name="VALUE10" length="120" />
+        </property>
+        <property name="regionidsys" type="big_decimal">
+            <column name="REGIONIDSYS" scale="0" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <!--  
+        <set name="activityDetails" table="T_ACTIVITYDETAIL" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="ACTIVITYCONTEXTID" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityDetail" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ActivityDetail" table="T_ACTIVITYDETAIL">
+        <id name="activitydetailid" type="big_decimal">
+            <column name="ACTIVITYDETAILID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <!--  
+        <many-to-one name="responsibility" class="com.mycompany.config.plan.Responsibility" fetch="select">
+            <column name="RESPONSIBILITYID" scale="0" not-null="true" />
+        </many-to-one>
+        -->
+        <many-to-one name="activityContext" class="com.mycompany.config.plan.ActivityContext" lazy="false" fetch="select">
+            <column name="ACTIVITYCONTEXTID" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="regionclasssys" type="string">
+            <column name="REGIONCLASSSYS" />
+        </property>
+        <property name="regionpropsys" type="string">
+            <column name="REGIONPROPSYS" length="50" />
+        </property>
+        <property name="rootpathsys" type="string">
+            <column name="ROOTPATHSYS" />
+        </property>
+        <property name="regionidsys" type="big_decimal">
+            <column name="REGIONIDSYS" scale="0" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <property name="ad1createddate" type="date">
+            <column name="AD1CREATEDDATE" length="7" />
+        </property>
+        <property name="ad1duedate" type="date">
+            <column name="AD1DUEDATE" length="7" />
+        </property>
+        <property name="ad1current" type="java.lang.Boolean">
+            <column name="AD1CURRENT" precision="1" scale="0" />
+        </property>
+        <property name="ad1priority" type="java.lang.Long">
+            <column name="AD1PRIORITY" precision="10" scale="0" />
+        </property>
+        <property name="ad1title" type="string">
+            <column name="AD1TITLE" length="200" />
+        </property>
+        <property name="ad1text" type="string">
+            <column name="AD1TEXT" length="4000" />
+        </property>
+        <property name="ad1createdby" type="big_decimal">
+            <column name="AD1CREATEDBY" scale="0" />
+        </property>
+        <property name="ad2createddate" type="date">
+            <column name="AD2CREATEDDATE" length="7" />
+        </property>
+        <property name="ad2duedate" type="date">
+            <column name="AD2DUEDATE" length="7" />
+        </property>
+        <property name="ad2current" type="java.lang.Boolean">
+            <column name="AD2CURRENT" precision="1" scale="0" />
+        </property>
+        <property name="ad2priority" type="java.lang.Long">
+            <column name="AD2PRIORITY" precision="10" scale="0" />
+        </property>
+        <property name="ad2title" type="string">
+            <column name="AD2TITLE" length="200" />
+        </property>
+        <property name="ad2text" type="string">
+            <column name="AD2TEXT" length="4000" />
+        </property>
+        <property name="ad2createdby" type="big_decimal">
+            <column name="AD2CREATEDBY" scale="0" />
+        </property>
+        <property name="position" type="java.lang.Long">
+            <column name="POSITION" precision="10" scale="0" />
+        </property>
+        <property name="ad1internalonly" type="java.lang.Boolean">
+            <column name="AD1INTERNALONLY" precision="1" scale="0" />
+        </property>
+        <property name="ad2internalonly" type="java.lang.Boolean">
+            <column name="AD2INTERNALONLY" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

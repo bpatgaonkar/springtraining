@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ActivityDefinition" table="T_ACTIVITYDEFINITION">
+        <id name="activitydefinitionid" type="big_decimal">
+            <column name="ACTIVITYDEFINITIONID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <many-to-one name="ActivityType" class="com.mycompany.config.plan.ActivityType" fetch="select">
+            <column name="ACTIVITYTYPECODE" length="40" not-null="true" />
+        </many-to-one>
+        <property name="uniquename" type="string">
+            <column name="UNIQUENAME" />
+        </property>
+        <property name="actcxtdel" type="java.lang.Boolean">
+            <column name="ACTCXTDEL" precision="1" scale="0" />
+        </property>
+        <property name="activitysp" type="string">
+            <column name="ACTIVITYSP" />
+        </property>
+        <property name="closedrenderer" type="string">
+            <column name="CLOSEDRENDERER" />
+        </property>
+        <property name="openrenderer" type="string">
+            <column name="OPENRENDERER" />
+        </property>
+        <property name="interface_" type="string">
+            <column name="INTERFACE" />
+        </property>
+        <property name="navinterface" type="string">
+            <column name="NAVINTERFACE" />
+        </property>
+        <property name="dashboardview" type="string">
+            <column name="DASHBOARDVIEW" />
+        </property>
+        <property name="consumerview" type="string">
+            <column name="CONSUMERVIEW" />
+        </property>
+        <property name="consumernavview" type="string">
+            <column name="CONSUMERNAVVIEW" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="supportedkey1" type="string">
+            <column name="SUPPORTEDKEY1" length="40" />
+        </property>
+        <property name="supportedkey2" type="string">
+            <column name="SUPPORTEDKEY2" length="40" />
+        </property>
+        <property name="supportedkey3" type="string">
+            <column name="SUPPORTEDKEY3" length="40" />
+        </property>
+        <property name="supportedkey4" type="string">
+            <column name="SUPPORTEDKEY4" length="40" />
+        </property>
+        <property name="supportedkey5" type="string">
+            <column name="SUPPORTEDKEY5" length="40" />
+        </property>
+        <property name="supportedkey6" type="string">
+            <column name="SUPPORTEDKEY6" length="40" />
+        </property>
+        <property name="supportedkey7" type="string">
+            <column name="SUPPORTEDKEY7" length="40" />
+        </property>
+        <property name="supportedkey8" type="string">
+            <column name="SUPPORTEDKEY8" length="40" />
+        </property>
+        <property name="supportedkey9" type="string">
+            <column name="SUPPORTEDKEY9" length="40" />
+        </property>
+        <property name="supportedkey10" type="string">
+            <column name="SUPPORTEDKEY10" length="40" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <!--  
+        <set name="activityContexts" table="T_ACTIVITYCONTEXT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACTIVITYDEFINITIONID" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityContext" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

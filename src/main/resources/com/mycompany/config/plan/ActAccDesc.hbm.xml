@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ActAccDesc" table="T_ACT_ACC_DESC">
+        <id name="actAccDescId" type="big_decimal">
+            <column name="ACT_ACC_DESC_ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <many-to-one name="activity" class="com.mycompany.config.plan.Activity" fetch="select">
+            <column name="ACTIVITYID" scale="0" />
+        </many-to-one>
+        <property name="accessctl" type="string">
+            <column name="ACCESSCTL" length="40" not-null="true" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <property name="accind" type="java.lang.Long">
+            <column name="ACCIND" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

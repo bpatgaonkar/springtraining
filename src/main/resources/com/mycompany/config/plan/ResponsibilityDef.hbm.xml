@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.ResponsibilityDef" table="T_RESPONSIBILITYDEF">
+        <id name="responsibilitydefid" type="big_decimal">
+            <column name="RESPONSIBILITYDEFID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <property name="uniquename" type="string">
+            <column name="UNIQUENAME" length="40" />
+        </property>
+        <property name="displayname" type="string">
+            <column name="DISPLAYNAME" length="40" />
+        </property>
+        <property name="renderer" type="string">
+            <column name="RENDERER" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <property name="permissiontypecode" type="string">
+            <column name="PERMISSIONTYPECODE" />
+        </property>
+        <set name="responsibilities" table="T_RESPONSIBILITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RESPONSIBILITYDEFID" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.Responsibility" />
+        </set>
+    </class>
+</hibernate-mapping>

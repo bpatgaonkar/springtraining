@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <!--  
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1520:XE</property>
+    <property name="hibernate.connection.username">plan</property>
+    <property name="hibernate.connection.password">plan</property>
+    
+    <property name="hibernate.current_session_context_class">thread</property>
+    -->
+    <mapping resource="com/mycompany/config/plan/ActivityEvent.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/PermissionGroupType.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/PlanContext.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/Activity.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActivityType.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActivityGroup.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/PermissionCatType.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActivityDetail.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ResponsibilityDef.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActivityContext.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/Plan.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/Responsibility.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActStDesc.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/PermissionType.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActivityDefinition.hbm.xml"/>
+    <mapping resource="com/mycompany/config/plan/ActAccDesc.hbm.xml"/>
+    
+  </session-factory>
+</hibernate-configuration>

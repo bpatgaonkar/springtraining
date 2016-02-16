@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="PLAN"/>
+  <table-filter match-name="T_ACTIVITYTYPE" />
+  <table-filter match-name="T_PLAN"/>
+  <table-filter match-name="T_RESPONSIBILITYDEF"/>
+  <table-filter match-name="T_PERMISSIONCATTYPE"/>
+  <table-filter match-name="T_ACTIVITYDETAIL"/>
+  <table-filter match-name="T_ACT_ACC_DESC"/>
+  <table-filter match-name="T_RESPONSIBILITY"/>
+  <table-filter match-name="T_ACTIVITYCONTEXT"/>
+  <table-filter match-name="T_ACT_ST_DESC"/>
+  <table-filter match-name="T_ACTIVITYEVENT"/>
+  <table-filter match-name="T_PERMISSIONTYPE"/>
+  <table-filter match-name="T_ACTIVITY"/>
+  <table-filter match-name="T_PERMISSIONGROUPTYPE"/>
+  <table-filter match-name="T_ACTIVITYGROUP"/>
+  <table-filter match-name="T_PLANCONTEXT"/>
+  <table-filter match-name="T_ACTIVITYDEFINITION"/>
+</hibernate-reverse-engineering>

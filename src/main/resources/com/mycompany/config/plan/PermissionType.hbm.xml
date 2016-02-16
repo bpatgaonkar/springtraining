@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.PermissionType" table="T_PERMISSIONTYPE">
+        <id name="permissionTypeCode" type="string">
+            <column name="PERMISSIONTYPECODE" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <many-to-one name="PermissionGroupType" class="com.mycompany.config.plan.PermissionGroupType" lazy="false" fetch="select">
+            <column name="PERMISSIONGROUPTYPECODE" />
+        </many-to-one>
+        <many-to-one name="PermissionCatType" class="com.mycompany.config.plan.PermissionCatType" lazy="false" fetch="select">
+            <column name="CATEGORY" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="64" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="128" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <!--
+        <set name="activityTypesForPermissionTypeCode" table="T_ACTIVITYTYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PERMISSIONTYPECODE" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityType" />
+        </set>
+         
+        <set name="activiTytypesForRdnlyPermissionTypeCode" table="T_ACTIVITYTYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RDNLYPERMISSIONTYPECODE" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityType" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

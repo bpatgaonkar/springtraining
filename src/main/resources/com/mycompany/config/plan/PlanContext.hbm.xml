@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.PlanContext" table="T_PLANCONTEXT">
+        <id name="planContextId" type="big_decimal">
+            <column name="PLANCONTEXTID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <!--  
+        <many-to-one name="Plan" class="com.mycompany.config.plan.Plan" fetch="select">
+            <column name="PLANID" scale="0" not-null="true" />
+        </many-to-one>
+        -->
+        <property name="newstateconvopt" type="string">
+            <column name="NEWSTATECONVOPT" />
+        </property>
+        <property name="active" type="boolean">
+            <column name="ACTIVE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="plantype" type="string">
+            <column name="PLANTYPE" length="40" not-null="true" />
+        </property>
+        <property name="serviceproviderid" type="big_decimal">
+            <column name="SERVICEPROVIDERID" scale="0" not-null="true" />
+        </property>
+        <property name="summaryscore1" type="java.lang.Long">
+            <column name="SUMMARYSCORE1" precision="10" scale="0" />
+        </property>
+        <property name="summarystate1" type="string">
+            <column name="SUMMARYSTATE1" length="40" />
+        </property>
+        <property name="summaryscore2" type="java.lang.Long">
+            <column name="SUMMARYSCORE2" precision="10" scale="0" />
+        </property>
+        <property name="summarystate2" type="string">
+            <column name="SUMMARYSTATE2" length="40" />
+        </property>
+        <property name="summaryscore3" type="java.lang.Long">
+            <column name="SUMMARYSCORE3" precision="10" scale="0" />
+        </property>
+        <property name="summarystate3" type="string">
+            <column name="SUMMARYSTATE3" length="40" />
+        </property>
+        <property name="summaryscore4" type="java.lang.Long">
+            <column name="SUMMARYSCORE4" precision="10" scale="0" />
+        </property>
+        <property name="summarystate4" type="string">
+            <column name="SUMMARYSTATE4" length="40" />
+        </property>
+        <property name="summaryscore5" type="java.lang.Long">
+            <column name="SUMMARYSCORE5" precision="10" scale="0" />
+        </property>
+        <property name="summarystate5" type="string">
+            <column name="SUMMARYSTATE5" length="40" />
+        </property>
+        <property name="summaryscore6" type="java.lang.Long">
+            <column name="SUMMARYSCORE6" precision="10" scale="0" />
+        </property>
+        <property name="summarystate6" type="string">
+            <column name="SUMMARYSTATE6" length="40" />
+        </property>
+        <property name="planmodversion" type="java.lang.Long">
+            <column name="PLANMODVERSION" precision="10" scale="0" />
+        </property>
+        <property name="regionidsys" type="big_decimal">
+            <column name="REGIONIDSYS" scale="0" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <property name="loanapplicationid" type="big_decimal">
+            <column name="LOANAPPLICATIONID" scale="0" />
+        </property>
+        <!--  
+        <set name="activityContexts" table="T_ACTIVITYCONTEXT" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="PLANCONTEXTID" scale="0" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.ActivityContext" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

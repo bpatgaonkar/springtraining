@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.config.plan.PermissionGroupType" table="T_PERMISSIONGROUPTYPE">
+        <id name="permissionGroupTypeCode" type="string">
+            <column name="PERMISSIONGROUPTYPECODE" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="long">
+            <column name="VERSION" precision="10" scale="0" not-null="true" />
+        </version>
+        <property name="displayorder" type="java.lang.Long">
+            <column name="DISPLAYORDER" precision="10" scale="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="128" />
+        </property>
+        <property name="sessionid" type="big_decimal">
+            <column name="SESSIONID" scale="0" not-null="true" />
+        </property>
+        <property name="lstmoddttm" type="date">
+            <column name="LSTMODDTTM" length="7" not-null="true" />
+        </property>
+        <!--  
+        <set name="permissionTypes" table="T_PERMISSIONTYPE" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="PERMISSIONGROUPTYPECODE" />
+            </key>
+            <one-to-many class="com.mycompany.config.plan.PermissionType" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

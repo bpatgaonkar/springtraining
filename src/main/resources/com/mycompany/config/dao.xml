@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    
+    <!-- To enable @AspectJ support with XML based configuration 
+		In Spring AOP, it is not possible to have aspects themselves be the target of advice 
+		from other aspects. The @Aspect annotation on a class marks it as an aspect, 
+		and hence excludes it from auto-proxying.
+ 		<aop:aspectj-autoproxy />
+    -->
+   
+    <bean id="myAspect" class="com.mycompany.springtraining.NotVeryUsefulAspect">
+        <!-- configure properties of aspect here as normal -->
+    </bean>
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	 <property name="location" value="classpath:hibernate.properties"/>
+	</bean>
+ 
+	<!-- Basic Data Source -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${driver.class.name}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+	<!--  Hibernate Session Factory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:/hibernate.cfg.xml"/>
+        <!--  
+        <property name="mappingResources">
+      	<list>
+			<value>com/mycompany/config/plan/ActivityEvent.hbm.xml</value>
+		    <value>com/mycompany/config/plan/PermissionGroupType.hbm.xml</value>
+		    <value>com/mycompany/config/plan/PlanContext.hbm.xml</value>
+		    <value>com/mycompany/config/plan/Activity.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActivityType.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActivityGroup.hbm.xml</value>
+		    <value>com/mycompany/config/plan/PermissionCatType.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActivityDetail.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ResponsibilityDef.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActivityContext.hbm.xml</value>
+		    <value>com/mycompany/config/plan/Plan.hbm.xml</value>
+		    <value>com/mycompany/config/plan/Responsibility.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActStDesc.hbm.xml</value>
+		    <value>com/mycompany/config/plan/PermissionType.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActivityDefinition.hbm.xml</value>
+		    <value>com/mycompany/config/plan/ActAccDesc.hbm.xml</value>      		
+      	</list>
+      	</property>
+		<property name="hibernateProperties">
+	      <value>
+	        hibernate.dialect=org.hibernate.dialect.OracleDialect
+	      </value>
+    	</property>
+      -->	      	
+    </bean>    
+ 
+    <!-- Transaction Manager for Hibernate -->
+    <bean id="transactionManager"
+      class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean> 
+     
+    <!-- DAO's -->
+    <bean name="activityDao" class="com.mycompany.config.plan.dao.impl.ActivityDaoImpl">      
+        <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>          
+    
+    <bean name="planDao" class="com.mycompany.config.plan.dao.impl.PlanDaoImpl">      
+        <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>       
+</beans>
