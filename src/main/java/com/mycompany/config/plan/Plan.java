@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -46,8 +47,9 @@ public class Plan  implements java.io.Serializable {
      @XmlTransient
      private Date lstmoddttm;
      @XmlElement(name="responsbility")
-     @XmlElementWrapper(name="responsbilities")
+     @XmlElementWrapper
      private Set<Responsibility> responsibilities = new HashSet(0);
+     @JsonIgnore
      @XmlTransient
      private Set<PlanContext> planContexts = new HashSet(0);
 

@@ -26,6 +26,7 @@
 		<project.spring-test.version>3.2.16.RELEASE</project.spring-test.version>
 		<project.hibernate3-maven-plugin.version>2.2</project.hibernate3-maven-plugin.version>
 		<project.source.version>1.5</project.source.version>
+                <project.ehcache.version>2.9.1</project.ehcache.version>
 	</properties>
 
 	<build>
@@ -193,6 +194,11 @@
 			<artifactId>json-path</artifactId>
 			<version>${project.json-path.version}</version>
 		</dependency>
+                <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-ehcache</artifactId>
+                        <version>4.0.1.Final</version>
+                </dependency>
 
 	</dependencies>
 </project>

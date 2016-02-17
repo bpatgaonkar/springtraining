@@ -29,7 +29,7 @@ public class Activity  implements java.io.Serializable {
      private long version;
 	 @XmlTransient
      private ActivityGroup activityGroup;
-	 @XmlElement(name="ActivityType")
+        @XmlElement(name="ActivityType")
      private ActivityType activityType;
      @XmlTransient
      private String planname;

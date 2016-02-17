@@ -10,6 +10,8 @@ import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
@@ -42,8 +44,10 @@ public class ActivityType  implements java.io.Serializable {
      private BigDecimal sessionid;
 	 @XmlTransient
      private Date lstmoddttm;
-	 @XmlTransient
-     private Set activitydefinitions = new HashSet(0);
+     //@XmlElement(name="ActivityDefination")
+     //@XmlElementWrapper
+         @XmlTransient
+     private Set<ActivityDefinition> activitydefinitions = new HashSet(0);
 	 @XmlTransient
      private Set activities = new HashSet(0);
 
@@ -142,7 +146,7 @@ public class ActivityType  implements java.io.Serializable {
     public void setLstmoddttm(Date lstmoddttm) {
         this.lstmoddttm = lstmoddttm;
     }
-    public Set getActivitydefinitions() {
+    public Set<ActivityDefinition> getActivitydefinitions() {
         return this.activitydefinitions;
     }
     

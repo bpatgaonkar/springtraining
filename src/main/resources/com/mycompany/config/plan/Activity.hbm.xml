@@ -11,10 +11,10 @@
         <version name="version" type="long">
             <column name="VERSION" precision="10" scale="0" not-null="true" />
         </version>
-        <many-to-one name="activityGroup" class="com.mycompany.config.plan.ActivityGroup" lazy="false" fetch="select">
+        <many-to-one name="activityGroup" class="com.mycompany.config.plan.ActivityGroup" fetch="join">
             <column name="ACTIVITYGROUPID" scale="0" />
         </many-to-one>
-        <many-to-one name="activityType" class="com.mycompany.config.plan.ActivityType" lazy="false" fetch="select">
+        <many-to-one name="activityType" class="com.mycompany.config.plan.ActivityType" fetch="join">
             <column name="ACTIVITYTYPECODE" length="40" not-null="true" />
         </many-to-one>
         <property name="planname" type="string">

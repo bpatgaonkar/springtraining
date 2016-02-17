@@ -2,6 +2,7 @@ package com.mycompany.config.plan;
 // Generated Feb 7, 2016 11:27:39 AM by Hibernate Tools 3.2.2.GA
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
@@ -12,7 +13,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
@@ -40,6 +40,7 @@ public class Responsibility  implements java.io.Serializable {
      private Date lstmoddttm;
      @XmlAttribute
      private Long position;
+     @JsonIgnore
      @XmlTransient
      private Set<ActivityDetail> activityDetails = new HashSet(0);
      @XmlElement(name="ActivityGroup")
@@ -119,7 +120,7 @@ public class Responsibility  implements java.io.Serializable {
     }
     
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    public Set getActivityDetails() {
+    public Set<ActivityDetail> getActivityDetails() {
         return this.activityDetails;
     }
     
@@ -127,7 +128,7 @@ public class Responsibility  implements java.io.Serializable {
         this.activityDetails = activityDetails;
     }
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    public Set getActivityGroups() {
+    public Set<ActivityGroup> getActivityGroups() {
         return this.activityGroups;
     }
     

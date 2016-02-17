@@ -10,7 +10,14 @@
     <property name="hibernate.connection.password">plan</property>
     
     <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>  
     -->
+    <!--
+    <property name="hibernate.cache.use_second_level_cache">true</property>  -->
+    <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>  
+    
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
     <mapping resource="com/mycompany/config/plan/ActivityEvent.hbm.xml"/>
     <mapping resource="com/mycompany/config/plan/PermissionGroupType.hbm.xml"/>
     <mapping resource="com/mycompany/config/plan/PlanContext.hbm.xml"/>

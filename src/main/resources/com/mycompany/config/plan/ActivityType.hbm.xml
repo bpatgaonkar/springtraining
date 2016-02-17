@@ -11,10 +11,10 @@
         <version name="version" type="long">
             <column name="VERSION" precision="10" scale="0" not-null="true" />
         </version>
-        <many-to-one name="permissionTypeByPermissionTypeCode" class="com.mycompany.config.plan.PermissionType" lazy="false" fetch="select">
+        <many-to-one name="permissionTypeByPermissionTypeCode" class="com.mycompany.config.plan.PermissionType" fetch="join">
             <column name="PERMISSIONTYPECODE" />
         </many-to-one>
-        <many-to-one name="permissionTypeByRdnlyPermissionTypeCode" class="com.mycompany.config.plan.PermissionType" lazy="false" fetch="select">
+        <many-to-one name="permissionTypeByRdnlyPermissionTypeCode" class="com.mycompany.config.plan.PermissionType" fetch="join">
             <column name="RDNLYPERMISSIONTYPECODE" />
         </many-to-one>
         <property name="displayname" type="string">

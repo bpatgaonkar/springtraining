@@ -4,6 +4,7 @@
 <!-- Generated Feb 6, 2016 2:20:32 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mycompany.config.plan.Plan" table="T_PLAN">
+        <cache usage="read-only" />  
         <id name="planid" type="big_decimal">
             <column name="PLANID" scale="0" />
             <generator class="assigned" />
@@ -41,7 +42,7 @@
             </key>
             <one-to-many class="com.mycompany.config.plan.Responsibility" />
         </set>
-        <set name="planContexts" table="T_PLANCONTEXT" inverse="true" lazy="false">
+        <set name="planContexts" table="T_PLANCONTEXT" inverse="true" lazy="true">
             <key>
                 <column name="PLANID" scale="0" not-null="true" />
             </key>

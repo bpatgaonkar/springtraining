@@ -128,7 +128,7 @@ public class ActivityGroup  implements java.io.Serializable {
     public void setPosition(Long position) {
         this.position = position;
     }
-    public Set getActivities() {
+    public Set<Activity> getActivities() {
         return this.activities;
     }
     

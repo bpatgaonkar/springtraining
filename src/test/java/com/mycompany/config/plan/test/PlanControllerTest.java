@@ -44,7 +44,7 @@ public class PlanControllerTest {
 	}
 
 
-	//@Test
+	@Test
 	public void testGetPlanName() throws Exception {
 
 		mockMvc.perform(get("/plan/PLMainLoanPlan1"))
@@ -59,7 +59,7 @@ public class PlanControllerTest {
 				content().contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse().getContentAsString();
 		System.out.println(response);
 	}
-	@Test
+	//@Test
 	public void testGetAllPlan() throws Exception {	
 		String response = mockMvc.perform(get("/plan/list"))
 		.andExpect(status().isOk())
