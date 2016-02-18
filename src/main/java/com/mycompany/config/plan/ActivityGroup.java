@@ -2,6 +2,7 @@ package com.mycompany.config.plan;
 // Generated Feb 7, 2016 11:27:39 AM by Hibernate Tools 3.2.2.GA
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
@@ -42,6 +43,7 @@ public class ActivityGroup  implements java.io.Serializable {
      private Long position;
      @XmlElement(name="Activity")
      @XmlElementWrapper
+     
      private Set<Activity> activities = new HashSet(0);
 
     public ActivityGroup() {

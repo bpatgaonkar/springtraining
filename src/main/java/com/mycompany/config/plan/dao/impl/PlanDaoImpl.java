@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.mycompany.config.plan.Plan;
 import com.mycompany.config.plan.dao.PlanDao;
+import org.hibernate.FetchMode;
 
 public class PlanDaoImpl implements PlanDao {
 	private SessionFactory sessionFactory;
@@ -26,9 +27,10 @@ public class PlanDaoImpl implements PlanDao {
 		Session session = this.sessionFactory.getCurrentSession();
 		List list = session.createCriteria(Plan.class)
 				//.setProjection(Projections.distinct(Projections.id()))
-				//.setFetchMode("responsibilities", FetchMode.JOIN)
-				//.setFetchMode("responsibilityDef", FetchMode.JOIN)
-				//.setFetchMode("responsibilities.activityGroups.activities",FetchMode.JOIN)
+				.setFetchMode("responsibilities", FetchMode.JOIN)
+				.setFetchMode("responsibilities.responsibilityDef", FetchMode.JOIN)
+				.setFetchMode("responsibilities.activityGroups",FetchMode.JOIN)
+                                .setFetchMode("responsibilities.activityGroups.activities",FetchMode.JOIN)
 				.add(Restrictions.like("name", planName)).list();
 		if(list!=null && !list.isEmpty()){
 			Plan plan = (Plan)list.get(0);

@@ -43,6 +43,7 @@ public class Responsibility  implements java.io.Serializable {
      @JsonIgnore
      @XmlTransient
      private Set<ActivityDetail> activityDetails = new HashSet(0);
+     
      @XmlElement(name="ActivityGroup")
      @XmlElementWrapper
      private Set<ActivityGroup> activityGroups = new HashSet(0);

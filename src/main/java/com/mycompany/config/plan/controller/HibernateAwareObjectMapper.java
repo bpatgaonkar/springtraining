@@ -18,4 +18,5 @@ public class HibernateAwareObjectMapper extends ObjectMapper {
         disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
         registerModule(hm);
     }
+    
 }
